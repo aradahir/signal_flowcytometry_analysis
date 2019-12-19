@@ -16,13 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
-from projects import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path("projects/", include("personal_web.urls")),
+    url('admin/', admin.site.urls),
+    path('project/', include("projects.urls")),
+    path('blog/', include("blog.urls")),
 ]
-urlpatterns = [
-    path("", views.project_index, name="project_index"),
-    path("<int:pk>/", views.project_detail, name="project_detail"),
-]
+
